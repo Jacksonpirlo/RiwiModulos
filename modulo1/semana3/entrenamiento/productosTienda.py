@@ -1,122 +1,143 @@
+# INITIAL PRODUCT LIST WITH ONE DEFAULT ITEM
 products = [{
     "name": "Harina",
     "price": 3000,
     "quantity": 12
 }]
-total:int=0
 
-def addProduct():
-    productsName = str(input('Product name: '))
-    Productprice = int(input('Product price: '))
-    Productquantity = int(input('Product quantity: '))
+# GLOBAL VARIABLE TO TRACK TOTAL VALUE
+total: int = 0
 
-    products.append({
+# FUNCTION TO ADD A NEW PRODUCT TO THE LIST
+def addProduct() -> None:
+    productsName: str = input('Product name: ')
+    productPrice: int = int(input('Product price: '))
+    productQuantity: int = int(input('Product quantity: '))
 
-        "name": productsName,
-        "price": Productprice,
-        "quantity": Productquantity
-    })
-
-    doYouWant:str=input('Do you want to add another product? yes/no: ')
-
-    if doYouWant.lower() == "yes":
-        return changePrice()
-    elif doYouWant.lower() == "no":
-        print(products)
-        return main()
-    else:
-        print(f'Data be wrong, you put {doYouWant}. Correct data: yes/ no')
-    return products
-
-def searchProduct():
-    productName = input('Product name: ')
-    
+    # CHECK IF THE PRODUCT ALREADY EXISTS (CASE INSENSITIVE)
     for product in products:
-        if product["name"].lower() == productName.lower():
-            print("Product found \n")
-            print(f"Product name: {product["name"]}")
-            print(f"Product price: {product["price"]}")
-            print(f"Product quantity: {product["quantity"]}")
+        if product["name"].lower() == productsName.lower():
+            print(f'\n  ❌ ❌ ❌ THIS PRODUCT "{productsName.lower()}" ALREADY EXISTS ❌ ❌ ❌')
             return
 
-    print("Product not found")
+    # CREATE A NEW PRODUCT DICTIONARY AND ADD IT TO THE LIST
+    newProduct: dict = {
+        "name": productsName,
+        "price": productPrice,
+        "quantity": productQuantity
+    }
+    products.append(newProduct)
 
+    # ASK IF THE USER WANTS TO ADD ANOTHER PRODUCT
+    doYouWant: str = input('Do you want to add another product? yes/no: ')
+    if doYouWant.lower() == "yes":
+        addProduct()
+    elif doYouWant.lower() == "no":
+        print(products)
+    else:
+        print(f'Data is wrong, you put "{doYouWant}". Correct options: yes / no')
 
-def changePrice():
-    print('Search a product by its name')
-    productName = input('Product name: ')
+# FUNCTION TO SEARCH FOR A PRODUCT BY NAME
+def searchProduct() -> None:
+    productName: str = input('Product name: ')
     
     for product in products:
         if product["name"].lower() == productName.lower():
-            print(f'Change the price of {product["name"]}')
-            newPrice = str(input("New product price: "))
+            print("\n ✅ PRODUCT FOUND ✅ \n")
+            name: str = product['name']
+            price: int = product['price']
+            quantity: int = product['quantity']
+
+            # DISPLAY THE PRODUCT DETAILS
+            print(f"Product name: {name}")
+            print(f"Product price: {price}")
+            print(f"Product quantity: {quantity}")
+            return
+
+    # PRODUCT WAS NOT FOUND
+    print("\n ❌ PRODUCT NOT FOUND 😖")
+
+# FUNCTION TO CHANGE THE PRICE OF AN EXISTING PRODUCT
+def changePrice() -> None:
+    print('Search a product by its name')
+    productName: str = input('Product name: ')
+    
+    for product in products:
+        if product["name"].lower() == productName.lower():
+            print(f'Change the price of "{product["name"]}"')
+            newPrice: int = int(input("New product price: "))
             product["price"] = newPrice
             print(products)
-            doYouWant:str=input('Do you want to change another price of product: ')
 
+            # ASK IF THE USER WANTS TO CHANGE ANOTHER PRICE
+            doYouWant: str = input('Do you want to change another product price? yes/no: ')
             if doYouWant.lower() == "yes":
-                return changePrice()
+                changePrice()
             elif doYouWant.lower() == "no":
-                print(products)
-                return main()
+                return
             else:
-                print(f'Data be wrong, you put {doYouWant}. Correct data: yes/ no')
+                print(f'Data is wrong, you put "{doYouWant}". Correct options: yes / no')
+            return
+    
+    # PRODUCT NOT FOUND
+    print("❌ Product not found")
 
-def deleteProduct():
+# FUNCTION TO DELETE A PRODUCT FROM THE LIST
+def deleteProduct() -> None:
     print('Search a product by its name')
-    productName = input('Product name:')
+    productName: str = input('Product name: ')
     
     for product in products:
         if product["name"].lower() == productName.lower():
-            print(f'delete the price of {product["name"]}...')
+            print(f'Deleting product "{product["name"]}"...')
             products.remove(product)
-            return products
+            return
 
-    print("Product not found")
-    return main()
+    # PRODUCT NOT FOUND
+    print("❌ Product not found 😖")
 
-def sumAll():
+# FUNCTION TO CALCULATE THE TOTAL VALUE OF ALL PRODUCTS
+def sumAll() -> str:
     print('Total price of products')
-    
-    for product in products:
-        total += product["price"] * total
-        return total
-    print("Product not found")
+    total: int = sum(map(lambda p: p.get("price", 0) * p.get("quantity", 0), products))
+    return f'Final total: {total} 💲'
 
+# MAIN FUNCTION WITH THE PROGRAM MENU
+def main() -> None:
+    print('WELCOME TO THE VAQUITA 🐮')
 
-print('WELCOME TO THE VAQUITA 🐮')
-def main():
-    status = int(input(f'''
+    # MAIN LOOP TO KEEP SHOWING MENU UNTIL USER EXITS
+    while True:
+        status: int = int(input('''
 
-      We have this options for you:
+      WE HAVE THESE OPTIONS FOR YOU:
                        
-                Press:
-                       
-                       1) Add a product ➕
-                       2) Search a product 🔎
-                       3) Change the price of product 📄
-                       4) Delete a product ❌
-                       5) View your total price 💲
-                       6) Exit ➡️
+                PRESS:
+                       1) ADD A PRODUCT ➕
+                       2) SEARCH A PRODUCT 🔎
+                       3) CHANGE THE PRICE OF A PRODUCT 📄
+                       4) DELETE A PRODUCT ❌
+                       5) VIEW YOUR TOTAL PRICE 💲
+                       6) EXIT ➡️
 
-'''))
-    
-    if status == 1:
-        print("Add a product")
-        print(addProduct())
-    elif status == 2:
-        print("Search a product by Its name")
-        print(searchProduct())
-    elif status == 3:
-        print("Change the price of product")
-        print(changePrice())
-    elif status == 4:
-        print("Delete a product")
-        print(deleteProduct())
-    elif status == 5:
-        print("View your total price")
-        print(sumAll())
-    elif status == 6:
-        return print('Bye, have a nice day ☺️')
+        '''))
 
+        # HANDLE USER SELECTION
+        if status == 1:
+            addProduct()
+        elif status == 2:
+            searchProduct()
+        elif status == 3:
+            changePrice()
+        elif status == 4:
+            deleteProduct()
+        elif status == 5:
+            print(sumAll())
+        elif status == 6:
+            print('BYE, HAVE A NICE DAY ☺️')
+            break
+        else:
+            print("INVALID OPTION. PLEASE SELECT A NUMBER FROM 1 TO 6.")
+
+# START THE PROGRAM
 main()
