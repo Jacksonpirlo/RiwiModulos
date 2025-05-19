@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    list-style: none;
+    background-color: #6f00ff;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    background-color: rgba(0, 0, 0, 0.89);
+    color: #fff;
+}
+
+.background-main {
+    background-color: #000000b2;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 25px;
+    border-radius: 20px;
+}
+
+.main-styles h1 {
+    margin-bottom: 10px;
+}
+
+.img-container {
+    margin:20px;
+}
+
+.img-container img {
+    max-width: 500px;
+    width: 250px;
+    min-width: 100;
+    border-radius: 20px 10px 60px 33px;
+    box-shadow: 1px 10px 20px 1px #6f00ff;
+}
+
+/* About me section */
+
+.About_me h2 {
+    margin-bottom: 20px;
+}
+
+.About_me p {
+    margin-bottom: 10px;
+}
+
+.personal_information {
+    background-color: #6f00ff80;
+    padding: 20px;
+    margin: 30px;
+}
+
+.personal_information ol {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: start;
+}
+
+.personal_information ol li {
+    margin: 2px;
+}
+
+/* Experience section */
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8;
+    background-color: rgb(39, 39, 39);
+}
+
+.experience h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.experience p {
+    margin: 10px;
+}
+
+.experience .imgs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.experience .p_experience_bottom {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.projects h2 {
+    margin: 20px;
+}
+
+.projects h3 {
+    margin-bottom: 20px;
+}
+
+.projects_items a {
+    color: #d8d6d6;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #6f00ff;
+}
+
+footer a {
+    margin: 10px;
+}
+
+footer a {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
