@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  flex: 1;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background: #2d9cdb;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+button:hover {
+  background: #1b7dbd;
+}
+
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e9ecef;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.product-card span {
+  font-weight: bold;
+}
+
+.actions button {
+  margin-left: 10px;
+  background: #ff4d4f;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.actions button.update {
+  background: #28a745;
+}
+
+.actions button:hover {
+  opacity: 0.9;
+}

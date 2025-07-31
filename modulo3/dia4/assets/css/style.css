@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #000000b0;
+    color: #fff;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding: 20px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+main ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
+
+main h2 {
+    margin: 20px;
+}
+
+main .addTask {
+    margin: 30px;
+}
+
+.addTask input {
+    margin: 5px;
+    padding: 10px;
+}
+
+.addTask button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.taskDescription ul li {
+    background-color: #000000;
+}
+
+.taskDescription ul .done p {
+    display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    color: #fff;
+}
